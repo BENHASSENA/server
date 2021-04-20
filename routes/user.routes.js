@@ -153,7 +153,7 @@ router.post('/usertask', async (req,res)=>{
 })
 
 //Route pour supprimer une tache
-router.delete('/delete/:id', (req,res)=>{
+router.delete('/delete/id', (req,res)=>{
     try {
         Task.deleteOne({user_id: req.params.id})
         .then(res.json({message: "bien effacé"}))
