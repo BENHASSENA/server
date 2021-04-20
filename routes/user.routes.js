@@ -84,7 +84,7 @@ router.post('/', async (req,res)=>{
 
         const {password, ...data} = await user.toJSON()
 
-        res.send(cookie);
+        res.send(data);
     }
     catch (error){
         return res.status(404).send({
@@ -121,7 +121,7 @@ router.post('/userfolder', async (req,res)=>{
 })
 
 //Route pour supprimer un dossier
-router.delete('/delete/:id', (req,res)=>{
+router.delete('folder/delete/:id', (req,res)=>{
     try {
         Folder.deleteOne({_id: req.params.id})
         .then(res.json({message: "bien effacé"}))
@@ -153,9 +153,9 @@ router.post('/usertask', async (req,res)=>{
 })
 
 //Route pour supprimer une tache
-router.delete('/delete/:id', (req,res)=>{
+router.delete('/task/delete/:id', (req,res)=>{
     try {
-        Task.deleteOne({user_id: req.params.id})
+        Task.deleteOne({_id: req.params.id})
         .then(res.json({message: "bien effacé"}))
     } catch (error) {
         return res.json({message: error})
