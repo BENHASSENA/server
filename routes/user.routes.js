@@ -121,7 +121,11 @@ router.post('/userfolder', async (req,res)=>{
 })
 
 //Route pour supprimer un dossier
+<<<<<<< HEAD
 router.delete('/folder/delete/:id', (req,res)=>{
+=======
+router.delete('folder/delete/:id', (req,res)=>{
+>>>>>>> 518a19a950ebe7ef2c7867d45b0dda5477178b87
     try {
         Folder.deleteOne({_id: req.params.id})
         .then(res.json({message: "bien effacé"}))
