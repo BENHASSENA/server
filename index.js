@@ -6,7 +6,7 @@ const mongoose = require ('mongoose');
 const userRoutes = require ('./routes/user.routes');
 
 // DB CONNECTION
-// TODO : Ajouter la connexion dans un fichier séparé quui servira de module de connexion
+// TODO : Ajouter la connexion dans un fichier séparé qui servira de module de connexion
 mongoose.connect('mongodb://localhost/jwt_auth',{
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -14,7 +14,7 @@ mongoose.connect('mongodb://localhost/jwt_auth',{
     console.log('connected to MongoDB');
 });
 
-// TODO : Créer un fichier .env qui contient les variables d'environnement qcomme l'URL de connexion à la base de donnée, le port d'écoute.
+// TODO : Créer un fichier .env qui contient les variables d'environnement comme l'URL de connexion à la base de donnée, le port d'écoute.
 const app = express();
 app.use(cookieParser());
 app.use(cors({

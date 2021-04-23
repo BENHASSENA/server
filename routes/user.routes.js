@@ -23,12 +23,12 @@ router.post('/register', async (req,res)=>{
         password: hashedPassword,
     })
 
-    // 
+    // Je sauvegarde les résultats de l'utilisateur dans result 
     const result = await user.save()
-    // On décompose l'objet
+    // Je décompose l'objet
     const {password, ...data} = await result.toJSON()
 
-    // On retourne data
+    // Je retourne data dans un objet JSON
     res.send(data);
 
 })
@@ -52,7 +52,6 @@ router.post('/connexion', async (req,res)=>{
     }
 
     // 3-je créé un token de session pour l'utilisateur
-
     const token = jwt.sign({_id:user._id}, "secret");
 
     res.cookie('jwt', token, {
@@ -60,11 +59,8 @@ router.post('/connexion', async (req,res)=>{
         maxAge: 24*60*60*1000 //= 1 jour en millisecondes 
     })
 
-
     res.send(user);
-
-
-});
+})
 
 //Route qui récupere les infos de l'utilisateur
 router.post('/', async (req,res)=>{
@@ -89,7 +85,7 @@ router.post('/', async (req,res)=>{
         })
     }
     
-});
+})
 
 //Route de deconnexion
 router.post('/logout', async (req,res)=>{
@@ -120,11 +116,11 @@ router.post('/userfolder', async (req,res)=>{
 //Route pour supprimer un dossier
 
 router.delete('folder/delete/:id', (req,res)=>{
-
     try {
         Folder.deleteOne({_id: req.params.id})
         .then(res.json({message: "bien effacé"}))
-    } catch (error) {
+    } 
+    catch (error) {
         return res.json({message: error})
     }
 })
