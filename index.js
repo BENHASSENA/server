@@ -4,6 +4,7 @@ const cors = require ('cors');
 const cookieParser = require('cookie-parser');
 const mongoose = require ('mongoose');
 const userRoutes = require ('./routes/user.routes');
+require('dotenv').config()
 
 // DB CONNECTION
 // TODO : Ajouter la connexion dans un fichier séparé qui servira de module de connexion
@@ -29,5 +30,5 @@ app.use(express.json());
 // });
 app.use('/api/user', userRoutes);
 
-app.listen(8000);
+app.listen(process.env.PORT);
 
