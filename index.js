@@ -8,12 +8,12 @@ require('dotenv').config()
 
 // DB CONNECTION
 // TODO : Ajouter la connexion dans un fichier séparé qui servira de module de connexion
-mongoose.connect('mongodb://localhost/jwt_auth',{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}, ()=>{
-    console.log('connected to MongoDB');
-});
+// mongoose.connect('mongodb://localhost/jwt_auth',{
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+// }, ()=>{
+//     console.log('connected to MongoDB');
+// });
 
 // TODO : Créer un fichier .env qui contient les variables d'environnement comme l'URL de connexion à la base de donnée, le port d'écoute.
 const app = express();
